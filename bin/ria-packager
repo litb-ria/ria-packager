@@ -21,7 +21,7 @@ if(conf['-start'] || conf['-restart']){
     kill();
 
     var ps = spawn('node',[path.resolve(__dirname,'..','lib','server','httpd.js'),
-                   '-port',conf['-port'],
+                   '-port',port,
                    '-root',conf['-root']]);
     
     ps.stdout.on('data', function (data) {

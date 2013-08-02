@@ -14,9 +14,8 @@ if(process.argv.length === 2){
     process.exit(1);
 }
 //modify by huajian --根据端口启动多个不同的服务而不会互相干扰
-var port = parseInt('port', 10) || 8888;
+var port = parseInt(conf['-port'], 10) || 8888;
 var pid = path.join(os.tmpDir(), port + '.node_pid');
-
 if(conf['-start'] || conf['-restart']){
     kill();
 

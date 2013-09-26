@@ -1,10 +1,15 @@
+v2.2.5
+==================
+1.change the value of litb.lan when switch language in rendmustache.js 
+2.bug fixed in rendmustache.js when switch params with hash
+3.fixed debug iframe height bug.
 v2.2.4
 ==================
-1.bug fixed whitout port params;
+1.bug fixed without port params;
 
 v2.2.3
 ==================
-1.bug fixed whitout port params;
+1.bug fixed without port params;
 
 v2.2.2
 ==================

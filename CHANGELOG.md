@@ -1,3 +1,7 @@
+v2.2.6
+==================
+1.remove html comments
+2.add test.json
 v2.2.5
 ==================
 1.change the value of litb.lan when switch language in rendmustache.js 

@@ -1,3 +1,6 @@
+v2.2.7
+==================
+1.add json verify
 v2.2.6
 ==================
 1.remove html comments

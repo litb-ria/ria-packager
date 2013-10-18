@@ -9,7 +9,7 @@ var walk = require('./lib/tools/dirWalker');
 var pkgJs = require('./lib/js/combineAll');
 var pkgCss = require('./lib/css/combineAll');
 var pkgLess = require('./lib/less/combineAll');
-
+var pkgPagelet = require('./lib/combinePagelet');
 var cpf = require('./lib/tools/cpFile');
 var writeMappingFile = require('./lib/tools/md5').writeMappingFile;
 
@@ -56,6 +56,7 @@ function publish(conf,from,to) {
         cssList = files.css,
         lessList = files.less,
         htmlList = files.html,
+        pageletList = files.pagelet,
         otherFiles = files.other;
 
     //1. 先把目标目录建立好
@@ -88,6 +89,9 @@ function publish(conf,from,to) {
     htmlList.forEach(function(source) {
         cpf(source, source.replace(from, to), from);
     });
+
+    //8 init and copy pagelet html
+    pkgPagelet(from, to, htmlList, conf);
 
     console.log('######## Package SUCCESS! ###########');
     console.timeEnd('Package-Time');

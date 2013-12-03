@@ -9,8 +9,19 @@
      * @param{String}imgPath: @import引用的css文件中原始图片路径
      * */
     function relative(rootPath,imported,imgPath){
+        //解决url是绝对路径时匹配问题
+        if(imgPath.indexOf('http://') == 0){
+            imgPath = imgPath.replace('http://', 'URL_REPLACE_HTTP_VAR');
+        }
+        if(imgPath.indexOf('http://') == 0){
+            imgPath = imgPath.replace('http://', 'URL_REPLACE_HTTPS_VAR');
+        }
+
         //解决windows平台下path.relative带来的bug(先替换全部'\'为'/', 再去掉一个 '../' )
-        return path.relative(rootPath,path.resolve(imported,'..',imgPath)).replace(/\\/g,'/').replace('../','');
+        var str = path.relative(rootPath,path.resolve(imported,'..',imgPath));
+        str = str.replace(/\\/g,'/').replace('../','');
+        str = str.replace('URL_REPLACE_HTTPS_VAR', 'https://').replace('URL_REPLACE_HTTP_VAR', 'http://');
+        return str;
     }
 
     /**
